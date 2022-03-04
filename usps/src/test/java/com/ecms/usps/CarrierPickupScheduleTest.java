@@ -6,17 +6,15 @@ import com.madbox.usps.request.CarrierPickupScheduleRequest;
 import com.madbox.usps.utils.UspsServices;
 import org.junit.Test;
 
-import java.io.IOException;
-
 public class CarrierPickupScheduleTest {
 
 
     /**
      * 一般的请求
-     * @throws IOException
+     * @
      */
     @Test
-    public void testCarrierPickupSchedule() throws IOException {
+    public void testCarrierPickupSchedule()  {
         UspsServices uspsServices = new UspsServices(UserId.VALUE);
 
         CarrierPickupScheduleRequest carrierPickupScheduleRequest = new CarrierPickupScheduleRequest();

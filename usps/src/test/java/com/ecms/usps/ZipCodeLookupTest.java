@@ -5,13 +5,11 @@ import com.madbox.usps.Address;
 import com.madbox.usps.utils.UspsServices;
 import org.junit.Test;
 
-import java.io.IOException;
-
 public class ZipCodeLookupTest {
 
 
     @Test
-    public void testZipCodeLookup() throws IOException {
+    public void testZipCodeLookup() {
         UspsServices uspsServices = new UspsServices(UserId.VALUE);
 
         Address address = new Address();
@@ -26,7 +24,7 @@ public class ZipCodeLookupTest {
     }
 
     @Test
-    public void testZipCodeLookupErrorLetter() throws IOException {
+    public void testZipCodeLookupErrorLetter() {
         UspsServices uspsServices = new UspsServices(UserId.VALUE);
 
         Address address = new Address();

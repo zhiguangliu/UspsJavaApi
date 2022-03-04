@@ -5,18 +5,16 @@ import com.madbox.usps.request.CarrierPickupAvailabilityRequest;
 import com.madbox.usps.utils.UspsServices;
 import org.junit.Test;
 
-import java.io.IOException;
-
 public class CarrierPickupAvailabilityTest {
 
 
     /**
      * 一般的请求
      *
-     * @throws IOException
+     * @
      */
     @Test
-    public void testCarrierPickupAvailability() throws IOException {
+    public void testCarrierPickupAvailability()  {
         UspsServices uspsServices = new UspsServices(UserId.VALUE);
 
         CarrierPickupAvailabilityRequest carrierPickupAvailabilityRequest = new CarrierPickupAvailabilityRequest("628ECMS00573");
@@ -57,10 +55,10 @@ public class CarrierPickupAvailabilityTest {
     /**
      * 一般的请求
      *
-     * @throws IOException
+     * @
      */
     @Test
-    public void testCarrierPickupAvailability1() throws IOException {
+    public void testCarrierPickupAvailability1()  {
         UspsServices uspsServices = new UspsServices(UserId.VALUE);
 
         //17651 Railroad Street, City of Industry CA 91748 USA
