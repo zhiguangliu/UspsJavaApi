@@ -160,16 +160,19 @@ public class UspsServices {
                 jaxbContext = JAXBContext.newInstance(Error.class);
                 Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
                 StringReader sr = new StringReader(XmlUtil.toStr(errorElement));
-                errorType.set((Error) unmarshaller.unmarshal(sr));
+                Error unmarshal = (Error) unmarshaller.unmarshal(sr);
+                unmarshal.setDescription(StringEscapeUtils.unescapeHtml4(unmarshal.getDescription()));
+                errorType.set(unmarshal);
+
             } catch (JAXBException e) {
                 throw new UspsRequestException(e);
             }
 
-            final StringBuilder errordetailsBuilder = new StringBuilder();
-            errordetailsBuilder.append("Error :" + errorType.get().getNumber());
-            errordetailsBuilder.append("\nMessage :" + StringEscapeUtils.unescapeHtml4(errorType.get().getDescription()));
-            errordetailsBuilder.append("\nUrl :" + connection.get().getURL());
-            this.errorDetails.set(errordetailsBuilder);
+            final StringBuilder errorDetailsBuilder = new StringBuilder();
+            errorDetailsBuilder.append("Error :" + errorType.get().getNumber());
+            errorDetailsBuilder.append("\nMessage :" + errorType.get().getDescription());
+            errorDetailsBuilder.append("\nUrl :" + connection.get().getURL());
+            this.errorDetails.set(errorDetailsBuilder);
 //
             logger.debug(this.errorDetails.toString());
             //Get whatever the object was to be and create it with the added error

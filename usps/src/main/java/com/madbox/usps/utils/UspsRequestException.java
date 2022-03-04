@@ -48,4 +48,13 @@ public class UspsRequestException extends Exception {
         super(message, cause, enableSuppression, writableStackTrace);
         this.error = error;
     }
+
+    public Error getError() {
+        return error;
+    }
+
+    public UspsRequestException setError(Error error) {
+        this.error = error;
+        return this;
+    }
 }
