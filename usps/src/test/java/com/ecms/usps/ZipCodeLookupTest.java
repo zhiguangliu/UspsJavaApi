@@ -1,5 +1,6 @@
 package com.ecms.usps;
 
+import com.ecms.usps.constant.UserId;
 import com.madbox.usps.Address;
 import com.madbox.usps.utils.UspsServices;
 import org.junit.Test;
@@ -11,7 +12,7 @@ public class ZipCodeLookupTest {
 
     @Test
     public void testZipCodeLookup() throws IOException {
-        UspsServices uspsServices = new UspsServices("628ECMS00573");
+        UspsServices uspsServices = new UspsServices(UserId.VALUE);
 
         Address address = new Address();
         address.setAddress1("");
@@ -26,7 +27,7 @@ public class ZipCodeLookupTest {
 
     @Test
     public void testZipCodeLookupErrorLetter() throws IOException {
-        UspsServices uspsServices = new UspsServices("628ECMS00573");
+        UspsServices uspsServices = new UspsServices(UserId.VALUE);
 
         Address address = new Address();
         address.setAddress1("");

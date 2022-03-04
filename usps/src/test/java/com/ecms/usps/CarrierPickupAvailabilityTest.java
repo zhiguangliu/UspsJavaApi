@@ -1,5 +1,6 @@
 package com.ecms.usps;
 
+import com.ecms.usps.constant.UserId;
 import com.madbox.usps.request.CarrierPickupAvailabilityRequest;
 import com.madbox.usps.utils.UspsServices;
 import org.junit.Test;
@@ -16,7 +17,7 @@ public class CarrierPickupAvailabilityTest {
      */
     @Test
     public void testCarrierPickupAvailability() throws IOException {
-        UspsServices uspsServices = new UspsServices("628ECMS00573");
+        UspsServices uspsServices = new UspsServices(UserId.VALUE);
 
         CarrierPickupAvailabilityRequest carrierPickupAvailabilityRequest = new CarrierPickupAvailabilityRequest("628ECMS00573");
 //        carrierPickupAvailabilityRequest.setFirmName("ECMS Corp.");
@@ -60,7 +61,7 @@ public class CarrierPickupAvailabilityTest {
      */
     @Test
     public void testCarrierPickupAvailability1() throws IOException {
-        UspsServices uspsServices = new UspsServices("628ECMS00573");
+        UspsServices uspsServices = new UspsServices(UserId.VALUE);
 
         //17651 Railroad Street, City of Industry CA 91748 USA
         //17651 RAILROAD ST, CITY INDUSTRY, CA 91748-1194

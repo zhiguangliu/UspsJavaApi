@@ -1,5 +1,6 @@
 package com.ecms.usps;
 
+import com.ecms.usps.constant.UserId;
 import com.madbox.usps.Address;
 import com.madbox.usps.utils.UspsRequestException;
 import com.madbox.usps.utils.UspsServices;
@@ -17,7 +18,7 @@ public class AddressValidateTest {
      */
     @Test
     public void testAddressValidate() throws IOException, UspsRequestException {
-        UspsServices uspsServices = new UspsServices("628ECMS00573");
+        UspsServices uspsServices = new UspsServices(UserId.VALUE);
         Address address = new Address();
         address.setAddress1("");
         address.setAddress2("17651 Railroad Street");
@@ -35,7 +36,7 @@ public class AddressValidateTest {
      */
     @Test(expected = UspsRequestException.class)
     public void testAddressValidateOnlyAddress1() throws UspsRequestException {
-        UspsServices uspsServices = new UspsServices("628ECMS00573");
+        UspsServices uspsServices = new UspsServices(UserId.VALUE);
         Address address = new Address().init();
         address.setAddress2("17651 Railroad Street");
         try {
@@ -54,7 +55,7 @@ public class AddressValidateTest {
      */
     @Test(expected = UspsRequestException.class)
     public void testAddressValidateOnlyAddress2() throws UspsRequestException {
-        UspsServices uspsServices = new UspsServices("628ECMS00573");
+        UspsServices uspsServices = new UspsServices(UserId.VALUE);
         Address address = new Address();
         address.setAddress2("17651 Railroad Street");
         uspsServices.validatedAddress(address);
@@ -62,7 +63,7 @@ public class AddressValidateTest {
 
     @Test(expected = UspsRequestException.class)
     public void testAddressValidateOnlyAddressAndState() throws IOException, UspsRequestException {
-        UspsServices uspsServices = new UspsServices("628ECMS00573");
+        UspsServices uspsServices = new UspsServices(UserId.VALUE);
         Address address = new Address().init();
         address.setAddress2("17651 Railroad Street");
         address.setState("CA");
@@ -76,7 +77,7 @@ public class AddressValidateTest {
      */
     @Test
     public void testAddressValidateAddressAndStateAndCity() throws IOException, UspsRequestException {
-        UspsServices uspsServices = new UspsServices("628ECMS00573");
+        UspsServices uspsServices = new UspsServices(UserId.VALUE);
         Address address = new Address().init();
         address.setAddress2("17651 Railroad Street");
         address.setCity("City of Industry");
@@ -91,7 +92,7 @@ public class AddressValidateTest {
      */
     @Test
     public void testAddressValidateAddressAndZip5() throws IOException, UspsRequestException {
-        UspsServices uspsServices = new UspsServices("628ECMS00573");
+        UspsServices uspsServices = new UspsServices(UserId.VALUE);
         Address address = new Address().init();
         address.setAddress2("17651 Railroad Street");
         address.setZip("91748");
@@ -106,7 +107,7 @@ public class AddressValidateTest {
      */
     @Test
     public void testAddressValidateAddressSpellError1() throws IOException, UspsRequestException {
-        UspsServices uspsServices = new UspsServices("628ECMS00573");
+        UspsServices uspsServices = new UspsServices(UserId.VALUE);
         Address address = new Address().init();
         address.setAddress2("17651 Rallroad Street");
         address.setZip("91748");
@@ -121,7 +122,7 @@ public class AddressValidateTest {
      */
     @Test
     public void testAddressValidateAddressSpellError2() throws IOException, UspsRequestException {
-        UspsServices uspsServices = new UspsServices("628ECMS00573");
+        UspsServices uspsServices = new UspsServices(UserId.VALUE);
         Address address = new Address().init();
         address.setAddress2("17651 Ralroad Street");
         address.setZip("91748");
@@ -136,7 +137,7 @@ public class AddressValidateTest {
      */
     @Test(expected = UspsRequestException.class)
     public void testAddressValidateAddressSpellError3() throws IOException, UspsRequestException {
-        UspsServices uspsServices = new UspsServices("628ECMS00573");
+        UspsServices uspsServices = new UspsServices(UserId.VALUE);
         Address address = new Address().init();
         address.setAddress2("17651 Raiload Street");
         address.setZip("91748");
@@ -150,7 +151,7 @@ public class AddressValidateTest {
      */
     @Test(expected = UspsRequestException.class)
     public void testAddressValidateOnlyZipCode() throws IOException, UspsRequestException {
-        UspsServices uspsServices = new UspsServices("628ECMS00573");
+        UspsServices uspsServices = new UspsServices(UserId.VALUE);
         Address address = new Address().init();
         address.setZip("91748");
         uspsServices.validatedAddress(address);

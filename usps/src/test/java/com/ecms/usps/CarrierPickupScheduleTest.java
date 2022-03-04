@@ -1,5 +1,6 @@
 package com.ecms.usps;
 
+import com.ecms.usps.constant.UserId;
 import com.madbox.usps.Package;
 import com.madbox.usps.request.CarrierPickupScheduleRequest;
 import com.madbox.usps.utils.UspsServices;
@@ -16,7 +17,7 @@ public class CarrierPickupScheduleTest {
      */
     @Test
     public void testCarrierPickupSchedule() throws IOException {
-        UspsServices uspsServices = new UspsServices("628ECMS00573");
+        UspsServices uspsServices = new UspsServices(UserId.VALUE);
 
         CarrierPickupScheduleRequest carrierPickupScheduleRequest = new CarrierPickupScheduleRequest();
         carrierPickupScheduleRequest.setFirstName("zhiguang");
