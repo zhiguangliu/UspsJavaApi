@@ -21,6 +21,17 @@ public class Address {
 	private String state;
 	private String zip;
 	private String zip2;
+
+	public Address init() {
+		this.address1 = "";
+		this.address2 = "";
+		this.city = "";
+		this.state = "";
+		this.zip = "";
+		this.zip2 = "";
+		return this;
+	}
+
 	/**
 	 * @return the address1
 	 */

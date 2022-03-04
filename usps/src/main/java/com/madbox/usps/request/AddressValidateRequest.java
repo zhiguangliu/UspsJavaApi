@@ -8,19 +8,18 @@
  *******************************************************/
 package com.madbox.usps.request;
 
-import java.io.StringWriter;
+import com.madbox.usps.Address;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
-import com.madbox.usps.Address;
+import java.io.StringWriter;
 
 @XmlRootElement(name="AddressValidateRequest")
 public class AddressValidateRequest {
-	private String userId="<enter usps id here>";
+	private String userId;
 	private Address address;
 	public AddressValidateRequest(){
 		
